@@ -1,0 +1,53 @@
+epochs: 400
+time_step: 4
+layer: 4
+dim: 384
+num_heads: 8
+patch_size: 4
+mlp_ratio: 4
+#data_dir: ./torch/cifar10/
+data_dir:
+dataset: torch/cifar10
+num_classes: 10
+img_size: 32
+mean:
+    - 0.4914
+    - 0.4822
+    - 0.4465
+std:
+    - 0.2470
+    - 0.2435
+    - 0.2616
+crop_pct: 1.0
+scale:
+    - 0.8
+    - 1.0
+ratio: [0.75,1.33]
+hflip: 0.5
+color_jitter: 0.4
+interpolation: bicubic
+train_interpolation: bicubic
+aa: rand-m9-n1-mstd0.4-inc1
+mixup: 0.8
+mixup_off_epoch: 0
+mixup_prob: 1.0
+mixup_mode: batch
+mixup_switch_prob: 0.5
+cutmix: 1.0
+reprob: 0.25
+remode: pixel
+recount: 1
+amp: True
+batch_size: 64 # 从64提升到128看看
+val_batch_size: 64
+lr: 1e-3
+min_lr: 1e-6
+sched: cosine
+weight_decay: 5e-5
+cooldown_epochs: 10
+warmup_epochs: 20
+warmup_lr: 0.00001
+opt: adamw
+smoothing: 0.1
+workers: 8
+depths: 4
